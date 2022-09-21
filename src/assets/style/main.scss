@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;700&family=Nunito+Sans:wght@400;600;700;900&display=swap");
+@import "bootstrap/scss/bootstrap.scss";
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.cover-container {
+    height: 100vh;
+}
+
+.block {
+    max-width: 1000px;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 1.25em;
+
+    .form-check-label, .form-check-input {
+        cursor: pointer;
+    }
+
+    &__form {
+        min-width: 1000px;
+
+        .form-check-input {
+            margin-top: 0.5rem;
+        }
+    }
+
+    &__media {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        max-width: none !important;
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__instruction,
+    &__rating {
+        &__text {
+            text-transform: uppercase;
+        }
+    }
+    
+    &__composite-rating {
+        max-width: 90vw;
+        width: 90vw;
+
+        &__item {
+            width: 70vw;
+            height: 70vh;
+            margin:auto;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            video {
+                width: 100%;
+                margin: auto;
+                height: inherit;
+            }
+        }
+
+        &__questions {
+            height: 70vh;
+
+            .btn {
+                margin-top: 2rem !important;
+            }
+        }
+
+        &__question {
+            // margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: #eee;
+            border-radius: 10px;
+
+            .block__rating__options {
+                padding: 1.5rem 0;
+
+                &__desc {
+                    white-space: break-spaces;
+                    text-align: center !important;
+                }
+            }
+        }
+    }
+
+    &__rating {
+        &__options {
+            cursor: default;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex: 1;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            padding: 2rem 0 4rem;
+
+            &__desc {
+                display: block;
+                white-space: pre;
+                min-width: 28%;
+
+                &:first-child {
+                    text-align: right;
+                }
+
+                &:last-child {
+                    text-align: left;
+                }
+            }
+
+            &__input {
+                width: 70vw;
+                min-height: 32px;
+                margin-left: 2rem;
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    &__preconditions {
+        // text-align: left;
+
+        .form-check-inline {
+            padding-left: 2rem;
+
+            .form-check-input {
+                margin-right: 0.6rem;
+            }
+        }
+    }
+
+    &__slideshow {
+        min-width: 80vw;
+        min-height: 80vh;
+        position: relative;
+
+        &__item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__quiz {
+        input {
+            text-align: center;
+        }
+
+        .subtimer {
+            position: relative !important;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+
+            .time-left {
+                bottom: -1.5rem;
+            }
+        }
+    }
+
+    strong,
+    b {
+        font-weight: 900;        
+    }
+
+    .bigger {
+        font-size: 1.4em;
+    }
+
+    .player {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        background: black;
+
+        input {
+            display: none;
+        }
+
+        #video-players {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .progress-seek {
+            display: none;
+        }
+
+        video {
+            transform: translateX(-50%) translateY(-50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            max-height: -webkit-fill-available;
+            max-width: -webkit-fill-available;
+            z-index: -100;
+        }
+    }
+}
+
+.btn {
+    font-family: "Maven Pro", sans-serif;
+
+    &.has-keyboard-alternative {
+        min-width: 140px;
+        color: #2a2a2a;
+        background: none;
+        border-width: 2px;
+        position: relative;
+
+        .keyboard-info {
+            position: absolute;
+            bottom: 0.4rem;
+            width: 250px;
+            font-size: 0.9rem;
+            right: -265px;
+            text-align: left;
+            color: black;
+
+            b {
+                font-size: inherit;
+            }
+        }
+    }
+}
+
+.jumbotron {
+    background: none;
+}
+
+.square_options {
+    padding: 0 !important;
+    margin: 0 0 0 20px;
+
+    &:hover {
+        label {
+            border: 2px solid black;
+        }
+    }
+
+    &.last{
+        margin: 0 20px;
+    }
+    
+    input {
+        display: none;
+    }
+    label {
+        width: 40px;
+        height: 40px;
+        line-height: 36px;
+        background: rgba(0,0,0,0.1);
+        color: black;
+        border-radius: 4px;
+        border: 2px solid rgba(0,0,0,0.1);
+
+        &.selected{
+            background: black;
+            border: 2px solid black;
+            color: white;      
+        }
+    }
+}

@@ -1,0 +1,1 @@
+cxfreeze --compress --silent -O --include-files=dist_  main.py
