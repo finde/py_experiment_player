@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build_exe": "python setup.py build_exe"
+    "build_exe": "yarn build && python setup.py build_exe"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",

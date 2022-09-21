@@ -18,15 +18,15 @@ base = None
 # if sys.platform == "win32":
 #     base = "Win32GUI"
 
-setup(  name = "SAD",
-        version = "8.0",
-        description = "Stress and Addiction v8.0",
+setup(  name = "PyExperimentPlayer",
+        version = "1.0",
+        description = "PyExperimentPlayer v1.0",
         options = {
             "build_exe": build_exe_options,
         },
         executables = [Executable("app.py", 
             base=base,
             initScript="Console",
-            targetName="Stress_and_Addiction",
+            targetName="PyExperimentPlayer",
             icon="dist/favicon.ico"
         )])

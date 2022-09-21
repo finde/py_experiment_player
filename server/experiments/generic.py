@@ -123,10 +123,6 @@ class Experiment:
 
     ## ROUTER
     def setup_router(self, router):
-        @router.get("/", response_class=HTMLResponse)
-        async def homepage(request: Request):
-            return config.TEMPLATES.TemplateResponse("index.html", {"request": request})
-
         @router.get("/check")
         async def check():
             data = {"code": 200}
@@ -218,3 +214,8 @@ class Experiment:
 
             data = self.experiment(settings)
             return JSONResponse(content=data)
+
+        @router.get("/", response_class=HTMLResponse)
+        @router.get("/{session_id}", response_class=HTMLResponse)
+        async def homepage(request: Request):
+            return config.TEMPLATES.TemplateResponse("index.html", {"request": request})
