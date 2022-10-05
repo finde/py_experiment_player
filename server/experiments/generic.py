@@ -84,6 +84,18 @@ class Experiment:
         # load from config
         experiment_blocks = []
         items = []
+
+        experiment_id = config["experiment_id"]
+        cache_file = f"_cache_{experiment_id}.json"
+
+        # load cache if exists
+        if os.path.exists(cache_file):
+            with open("{}/{}".format(self.output_dir, cache_file)) as fp:
+                print("cache exists, load session")
+                cache_output = json.load(fp)
+                return cache_output
+
+        print("cache not exists, create new session")
         with open("{}/config.json".format(self.root_dir)) as fp:
             settings = json.load(fp)
             experiment_blocks = settings["experiment_blocks"]
@@ -91,6 +103,7 @@ class Experiment:
         for block in experiment_blocks:
             if "is_random" in block:
                 block["template_file"] = random.choice(block["template_file"])
+                print(block["template_file"])
 
             if block["type"] in ["sequence", "intro", "closing"]:
                 items.append(
@@ -118,6 +131,9 @@ class Experiment:
                 output[key] = value.lower()
             else:
                 output[key] = value
+
+        with open("{}/{}".format(self.output_dir, cache_file), "w") as fp:
+            json.dump(output, fp, indent=1, sort_keys=True)
 
         return output
 
@@ -195,6 +211,7 @@ class Experiment:
 
         @router.get("/marker/{code}")
         async def record_marker(code):
+            print(f"sending marker {code}")
             universal_marker(code)
             return f"Marker code {code}"
 

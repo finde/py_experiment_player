@@ -9,7 +9,8 @@ build_exe_options = {
     "optimize": 2,
     "silent": True,
     "zip_include_packages":["*"], 
-    "zip_exclude_packages":[]
+    "zip_exclude_packages":[],
+    "includes": ["anyio._backends", "anyio._backends._asyncio"]
 }
 
 # GUI applications require a different base on Windows (the default is for a
