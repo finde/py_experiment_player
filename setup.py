@@ -20,8 +20,8 @@ base = None
 #     base = "Win32GUI"
 
 setup(  name = "PyExperimentPlayer",
-        version = "1.0",
-        description = "PyExperimentPlayer v1.0",
+        version = "1.0.1",
+        description = "PyExperimentPlayer v1.0.1",
         options = {
             "build_exe": build_exe_options,
         },
